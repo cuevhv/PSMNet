@@ -1,0 +1,1 @@
+apython Test_img.py --loadmodel /home/hanz/Documents/phd/joint_learning/weight/pretrained_sceneflow.tar  --leftimg /home/hanz/Documents/phd/joint-disp-seg/datasets/Sampler/FlyingThings3D/RGB_cleanpass/left/0006.png  --rightimg /home/hanz/Documents/phd/joint-disp-seg/datasets/Sampler/FlyingThings3D/RGB_cleanpass/right/0006.png  --isgray False
