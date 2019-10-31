@@ -19,7 +19,7 @@ import math
 from utils import preprocess 
 from models import *
 import cv2
-
+import matplotlib.pyplot as plt
 # 2012 data /media/jiaren/ImageNet/data_scene_flow_2012/testing/
 
 parser = argparse.ArgumentParser(description='PSMNet')
@@ -117,14 +117,21 @@ def main():
 
        start_time = time.time()
        pred_disp = test(imgL,imgR)
-       print('time = %.2f' %(time.time() - start_time))
-       if top_pad !=0 or left_pad != 0:
-            img = pred_disp[top_pad:,:-left_pad]
-       else:
-            img = pred_disp
+       
+       plt.figure(1)
+       plt.imshow(pred_disp)
+
+       img = pred_disp
+    #    print('time = %.2f' %(time.time() - start_time))
+    #    if top_pad !=0 or left_pad != 0:
+    #         img = pred_disp[top_pad:,:-left_pad]
+    #    else:
+    #         img = pred_disp
        img = (img*256).astype('uint16')
        skimage.io.imsave('disparity.png',img)
-       
+       plt.figure(2)
+       plt.imshow(img)
+       plt.show()
        #img = np.concatenate((imgL_o, imgR_o),axis=1)
        #img = cv2.line(img, (0, 240), (1504, 240), (0, 0, 255), 2)
        #img = cv2.line(img, (0, 210), (1504, 210), (0, 0, 255), 2)
